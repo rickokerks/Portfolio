@@ -6,13 +6,13 @@ html {
   scroll-behavior: smooth;
 }
 
-.fade-in {
+.fade-in-text {
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUpText 0.8s ease-out forwards;
 }
 
-@keyframes fadeInUp {
+@keyframes fadeInUpText {
   to {
     opacity: 1;
     transform: translateY(0);

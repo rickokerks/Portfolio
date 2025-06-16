@@ -56,11 +56,11 @@ function App() {
       {/* Navbar */}
       <nav className="bg-black shadow-lg fixed top-0 left-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 fade-in-text">
             <FaUserCircle className="text-2xl text-white" />
             <h1 className="text-xl text-white font-bold font-poppins">Erronn John Madelo</h1>
           </div>
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 fade-in-text">
             <li>
               <a
                 href="#about"
@@ -98,7 +98,7 @@ function App() {
             className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16"
             style={{ backgroundColor: '#2c454c' }}
           >
-            <h2 className="text-8xl font-bold mb-8 text-center font-poppins text-white">
+            <h2 className="text-8xl font-bold mb-8 text-center font-poppins text-white fade-in-text">
               Project Contributions
             </h2>
 
@@ -121,8 +121,10 @@ function App() {
               className="min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 bg-pink-900 bg-cover"
               style={{ backgroundImage: `url('/images/back3.jpg')` }}
             >
-              <h1 className="text-8xl text-white font-bold mb-20 font-poppins">Hello, I'm Erronn!</h1>
-              <p className="text-lg text-white text-center max-w-xl">
+              <h1 className="text-8xl text-white font-bold mb-20 font-poppins fade-in-text">
+                Hello, I'm Erronn!
+              </h1>
+              <p className="text-lg text-white text-center max-w-xl fade-in-text">
                 I'm a front-end developer passionate about building clean and responsive web interfaces using React and TypeScript.
                 I'm currently learning and working with tools like React, TypeScript, HTML, and CSS. I’m eager to grow and build better
                 interfaces and become a professional front-end developer who creates polished, user-centered experiences.
@@ -135,19 +137,19 @@ function App() {
               className="py-20 flex flex-col justify-center items-center px-4 md:px-8 lg:px-16"
               style={{ backgroundColor: '#000000' }}
             >
-              <h2 className="text-3xl text-white font-semibold mb-4">Contact Me</h2>
+              <h2 className="text-3xl text-white font-semibold mb-4 fade-in-text">Contact Me</h2>
 
-              <p className="mb-2 flex items-center gap-2 text-white">
+              <p className="mb-2 flex items-center gap-2 text-white fade-in-text">
                 <FaEnvelope className="text-white" />
                 erronnjohn@gmail.com
               </p>
 
-              <p className="mb-2 flex items-center gap-2 text-white">
+              <p className="mb-2 flex items-center gap-2 text-white fade-in-text">
                 <FaPhoneAlt className="text-white" />
                 09602604115
               </p>
 
-              <p className="flex items-center gap-2 text-white">
+              <p className="flex items-center gap-2 text-white fade-in-text">
                 <FaGithub className="text-white" />
                 <a
                   className="text-white underline"
