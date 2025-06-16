@@ -51,19 +51,8 @@ function App() {
       {/* Projects Section */}
       <div>
         {view === 'projects' ? (
-          <section className="min-h-screen bg-white flex flex-col justify-center items-center px-4 md:px-8 lg:px-16">
-            <h2 className="text-5xl font-bold mb-12 text-left w-full font-poppins">Project Contributions</h2>
-            <div className="max-w-2xl text-center space-y-4 text-lg">
-              <p>
-                🔹 <strong>POS System</strong> – I collaborated with a friend and focused on building the front-end using React and TypeScript to manage user interactions, layout, and responsive design.
-              </p>
-              <p>
-                🔹 <strong>Inventory System</strong> – I developed a front-end interface for a basic inventory management system to track items, update quantities, and ensure clean user flow.
-              </p>
-              <p>
-                These projects gave me hands-on experience with component design, form handling, and using real data flows.
-              </p>
-            </div>
+          <section className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16">
+            <h2 className="text-5xl font-bold mb-8 text-left">Project Contributions</h2>
           </section>
         ) : (
           <>
