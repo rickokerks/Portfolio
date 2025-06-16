@@ -7,18 +7,48 @@ function ProjectsSection({ images }: { images: string[] }) {
 
   return (
     <>
-      <div className="mt-20 flex flex-col items-center space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl px-4">
-          {images.map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              alt={`Project Screenshot ${index + 1}`}
-              className="w-full h-auto rounded-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer fade-in"
-              onClick={() => setSelectedImage(src)}
-            />
-          ))}
-        </div>
+      <div className="mt-20 flex flex-col items-center space-y-6 w-full px-4">
+        {images.length === 5 ? (
+          <>
+            {/* First 3 Images */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+              {images.slice(0, 3).map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`Project Screenshot ${index + 1}`}
+                  className="w-full h-auto rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105 cursor-pointer fade-in"
+                  onClick={() => setSelectedImage(src)}
+                />
+              ))}
+            </div>
+
+            {/* Last 2 Centered Images */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl justify-center">
+              {images.slice(3).map((src, index) => (
+                <img
+                  key={index + 3}
+                  src={src}
+                  alt={`Project Screenshot ${index + 4}`}
+                  className="w-full h-auto rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105 cursor-pointer fade-in"
+                  onClick={() => setSelectedImage(src)}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+            {images.map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt={`Project Screenshot ${index + 1}`}
+                className="w-full h-auto rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105 cursor-pointer fade-in"
+                onClick={() => setSelectedImage(src)}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Lightbox Modal */}
@@ -39,6 +69,7 @@ function ProjectsSection({ images }: { images: string[] }) {
   );
 }
 
+
 function App() {
   const [view, setView] = useState<'home' | 'projects'>('home');
 
@@ -49,6 +80,14 @@ function App() {
     '/images/gardenbay4.png',
     '/images/gardenbay5.png',
     '/images/gardenbay6.png',
+  ];
+
+  const TechTrekImages = [
+    '/images/tech1.png',
+    '/images/tech2.png',
+    '/images/tech3.png',
+    '/images/tech4.png',
+    '/images/tech5.png',
   ];
 
   return (
@@ -94,25 +133,44 @@ function App() {
       {/* Main Content */}
       <div>
         {view === 'projects' ? (
-          <section
-            className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16"
-            style={{ backgroundColor: '#2c454c' }}
-          >
-            <h2 className="text-8xl font-bold mb-8 text-center font-poppins text-white fade-in-text">
-              Project Contributions
-            </h2>
+          <>
+            {/* GardenBay Section */}
+            <section
+              className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16"
+              style={{ backgroundColor: '#2c454c' }}
+            >
+              <h2 className="text-8xl font-bold mb-8 text-center font-poppins text-white fade-in-text">
+                Project Contributions
+              </h2>
 
-            <div className="mt-32 flex justify-center">
-              <img
-                src="/images/gardenbaylogo2.png"
-                alt="POS System"
-                className="w-full max-w-md h-auto rounded-lg"
-              />
-            </div>
+              <div className="mt-32 flex justify-center">
+                <img
+                  src="/images/gardenbaylogo2.png"
+                  alt="POS System"
+                  className="w-full max-w-md h-auto rounded-lg"
+                />
+              </div>
 
-            {/* Display the grid of images */}
-            <ProjectsSection images={GardenBayImages} />
-          </section>
+              <ProjectsSection images={GardenBayImages} />
+            </section>
+
+            {/* TechTrek Inventory Section */}
+            <section
+              className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16"
+              style={{ backgroundColor: '#0000FF' }}
+            >
+            
+              <div className="mt-32 flex justify-center">
+                <img
+                  src="/images/techtreklogo.png"
+                  alt="TechTrek Logo"
+                  className="w-full max-w-md h-auto rounded-lg"
+                />
+              </div>
+
+              <ProjectsSection images={TechTrekImages} />
+            </section>
+          </>
         ) : (
           <>
             {/* About Section */}
