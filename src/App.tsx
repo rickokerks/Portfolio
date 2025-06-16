@@ -51,8 +51,17 @@ function App() {
       {/* Projects Section */}
       <div>
         {view === 'projects' ? (
-          <section className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16">
-            <h2 className="text-5xl font-bold mb-8 text-left">Project Contributions</h2>
+          <section className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16" style={{ backgroundColor: '#2c454c' }}>
+            <h2 className="text-8xl font-bold mb-8 text-center font-poppins text-white" >Project Contributions</h2>
+
+            <div className="mt-32 flex justify-center">
+              <img
+                src="/images/gardenbaylogo2.png"
+                alt="POS System"
+                className="w-full max-w-md h-auto rounded-lg"
+              />
+            </div>
+
           </section>
         ) : (
           <>
