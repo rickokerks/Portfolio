@@ -1,9 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css';
 import { FaEnvelope, FaPhoneAlt, FaGithub, FaUserCircle } from 'react-icons/fa';
 
 function ProjectsSection({ images }: { images: string[] }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Escape key closes modal
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'auto'; // Clean up on unmount
+    };
+  }, [selectedImage]);
 
   return (
     <>
@@ -53,9 +75,19 @@ function ProjectsSection({ images }: { images: string[] }) {
 
       {/* Lightbox Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
-          <div className="relative max-w-4xl w-full p-4">
-            <img src={selectedImage} alt="Enlarged" className="w-full h-auto rounded-lg" />
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full p-4"
+            onClick={(e) => e.stopPropagation()} // Prevent background click
+          >
+            <img
+              src={selectedImage}
+              alt="Enlarged"
+              className="w-full h-auto rounded-lg mx-auto"
+            />
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-4 right-4 text-white text-xl bg-black bg-opacity-50 px-3 py-1 rounded"
@@ -159,7 +191,6 @@ function App() {
               className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16"
               style={{ backgroundColor: '#0000FF' }}
             >
-            
               <div className="mt-32 flex justify-center">
                 <img
                   src="/images/techtreklogo.png"
@@ -169,6 +200,29 @@ function App() {
               </div>
 
               <ProjectsSection images={TechTrekImages} />
+            </section>
+
+            <section
+              className="min-h-screen bg-white pt-28 px-4 md:px-8 lg:px-16"
+              style={{ backgroundColor: '#aaaaaa' }}
+            >
+              <div className="mt-1 flex justify-center">
+                <img
+                  src="/images/hblogo.png"
+                  alt="Heisenburger Logo"
+                  className="w-full max-w-md h-auto rounded-lg"
+                />
+              </div>
+
+              <ProjectsSection
+                images={[
+                  '/images/burger1.png',
+                  '/images/burger2.png',
+                  '/images/burger3.png',
+                  '/images/burger4.png',
+                  '/images/burger5.png',
+                ]}
+              />
             </section>
           </>
         ) : (
