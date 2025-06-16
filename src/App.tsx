@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './index.css';
 import { FaEnvelope, FaPhoneAlt, FaGithub } from "react-icons/fa";
+import { FaUserCircle } from 'react-icons/fa';
 
 function App() {
   const [view, setView] = useState<'home' | 'projects'>('home');
@@ -11,7 +12,11 @@ function App() {
       {/* Navbar */}
       <nav className="bg-black shadow-lg fixed top-0 left-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 className="text-xl text-white font-bold">MyPortfolio</h1>
+          {/* Left side: icon + name together */}
+          <div className="flex items-center gap-2">
+            <FaUserCircle className="text-2xl text-white" />
+            <h1 className="text-xl text-white font-bold font-poppins">Erronn John Madelo</h1>
+          </div>
           <ul className="flex space-x-6">
             <li>
               <a
@@ -43,10 +48,11 @@ function App() {
         </div>
       </nav>
 
+      {/* Projects Section */}
       <div>
         {view === 'projects' ? (
           <section className="min-h-screen bg-white flex flex-col justify-center items-center px-4 md:px-8 lg:px-16">
-            <h2 className="text-5xl font-bold mb-6">Project Contributions</h2>
+            <h2 className="text-5xl font-bold mb-12 text-left w-full font-poppins">Project Contributions</h2>
             <div className="max-w-2xl text-center space-y-4 text-lg">
               <p>
                 🔹 <strong>POS System</strong> – I collaborated with a friend and focused on building the front-end using React and TypeScript to manage user interactions, layout, and responsive design.
@@ -65,9 +71,9 @@ function App() {
             <section
               id="about"
               className="min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 bg-pink-900 bg-cover"
-              style={{ backgroundImage: `url('/images/.png')` }}
+              style={{ backgroundImage: `url('/images/back3.jpg')` }}
             >
-              <h1 className="text-8xl text-black font-bold mb-4">Hello, I'm Erronn!</h1>
+              <h1 className="text-8xl text-white font-bold mb-20 font-poppins">Hello, I'm Erronn!</h1>
               <p className="text-lg text-white text-center max-w-xl">
                 I'm a front-end developer passionate about building clean and responsive web interfaces using React and TypeScript.
                 I'm currently learning and working with tools like React, TypeScript, HTML, and CSS. I’m eager to grow and build better
